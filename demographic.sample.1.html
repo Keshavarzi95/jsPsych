@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demographic Questionnaire</title>
+</head>
+<body>
+
+<!-- Basic Demographics Section -->
+<div id="basicDemographics" style="display:block;">
+    <h2>Basic Demographics</h2>
+    <form action="">
+        Geburtsdatum: <input type="date" name="birthdate"><br>
+        Muttersprache: <input type="text" name="nativeLanguage"><br>
+        Höchster Bildungsabschluss: <input type="text" name="educationLevel"><br>
+        Geschlecht: 
+        <input type="radio" name="gender" value="male"> Männlich
+        <input type="radio" name="gender" value="female"> Weiblich
+        <input type="radio" name="gender" value="diverse"> Divers<br>
+        <button type="button" onclick="showSection('healthQuestions')">Next</button>
+    </form>
+</div>
+
+<!-- Health Questions Section -->
+<div id="healthQuestions" style="display:none;">
+    <h2>Health Questions</h2>
+    <form action="">
+        Händigkeit:
+        <input type="radio" name="handedness" value="right"> Rechts
+        <input type="radio" name="handedness" value="left"> Links
+        <input type="radio" name="handedness" value="both"> Beidhändig<br>
+        Benutzen Sie eine Sehhilfe?
+        <input type="radio" name="glasses" value="yes_experiment"> Ja, auch zum heutigen Experiment
+        <input type="radio" name="glasses" value="yes_not_today"> Ja, aber nicht zum heutigen Experiment
+        <input type="radio" name="glasses" value="no"> Nein<br>
+        <button type="button" onclick="showSection('basicDemographics')">Back</button>
+        <button type="button" onclick="showSection('substanceUse')">Next</button>
+    </form>
+</div>
+
+<!-- Substance Use Section -->
+<div id="substanceUse" style="display:none;">
+    <h2>Substance Use</h2>
+    <form action="">
+        Haben Sie in den letzten 24 Stunden Alkohol konsumiert (mehr als ein Glas Bier oder Wein)?
+        <input type="radio" name="alcohol" value="yes"> Ja
+        <input type="radio" name="alcohol" value="no"> Nein<br>
+        Haben Sie in den letzten 24 Stunden bewusstseinserweiternde Substanzen konsumiert?
+        <input type="radio" name="drugs" value="yes"> Ja
+        <input type="radio" name="drugs" value="no"> Nein<br>
+        <button type="button" onclick="showSection('healthQuestions')">Back</button>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+function showSection(sectionId) {
+    // Hide all sections
+    document.getElementById('basicDemographics').style.display = 'none';
+    document.getElementById('healthQuestions').style.display = 'none';
+    document.getElementById('substanceUse').style.display = 'none';
+
+    // Show the requested section
+    document.getElementById(sectionId).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
